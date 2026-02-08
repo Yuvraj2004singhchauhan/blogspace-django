@@ -2,7 +2,10 @@
 {%block content%}
 
 <article class="media content-section">
-    <img class = "rounded-circle article-img" src="{{ object.author.profile.image.url}}">
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="post image">
+    {% endif %}
+
     <div class="media-body">
         <div class="article-metadata">
             <a class="mr-2" href="{% url 'user-posts' object.author.username %}">{{ object.author }}</a>
